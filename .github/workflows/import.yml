@@ -1,0 +1,35 @@
+name: Import uploaded project
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/import.yml', 'batesto-*.zip']
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Restore original source tree
+        shell: python
+        run: |
+          import pathlib, zipfile
+          for archive in pathlib.Path('.').glob('batesto-*.zip'):
+              with zipfile.ZipFile(archive) as z:
+                  for name in z.namelist():
+                      p = pathlib.PurePosixPath(name)
+                      assert not p.is_absolute() and '..' not in p.parts
+                      assert p.parts[0] not in ('.git', '.github')
+                  z.extractall('.')
+              archive.unlink()
+      - name: Verify JavaScript and project tests
+        run: |
+          node --check dist/app.js
+          node --test *.test.mjs
+      - name: Commit restored files
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --quiet || git commit -m 'Restore verified site, CAD assets and source files'
+          git push origin HEAD:main
