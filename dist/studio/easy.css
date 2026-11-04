@@ -1,0 +1,31 @@
+/* A readable default, with engineering controls available on demand. */
+[data-ui="simple"] .expert-control,[data-ui="simple"] #assembly-panel,[data-ui="simple"] #business-open,[data-ui="simple"] #resize-tool,[data-ui="simple"] .selection-level,[data-ui="simple"] #room-pro-open{display:none!important}
+[data-ui="simple"] .inspector-tabs button{font-size:12px}
+[data-ui="simple"] .catalog-item strong{font-size:12px;line-height:1.35}
+[data-ui="simple"] .catalog-item small{font-size:10px}
+[data-ui="simple"] .property-group summary{font-size:13px}
+[data-ui="simple"] .field-grid label,[data-ui="simple"] .single-field{font-size:11px}
+[data-ui="simple"] .scene-caption{display:none}
+#easy-actions{padding:18px 20px;border-bottom:1px solid #dce4d2}
+.easy-help{font-size:12px;line-height:1.65;color:#637159;margin:0 0 14px}
+.easy-primary,.easy-secondary{display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 12px;border-radius:7px;font-size:12px;text-align:left}
+.easy-primary{background:#4f6b35;color:#fff}.easy-primary span{font-size:20px;margin-left:12px}.easy-secondary{margin-top:8px;border:1px solid #ccd7c1;color:#4f6343;background:#f6f8ef;justify-content:center}
+.expert-toggle{padding:15px 20px;width:100%;text-align:left;font-size:12px;color:#586d46;border-top:1px solid #dce4d2;background:#edf2e5}
+.expert-toggle[aria-pressed="true"]{background:#dbe8ca}
+[data-exploded="true"] .library>:not(#disassembly-list){display:none!important}
+[data-exploded="true"] .stage>.scene-top,[data-exploded="true"] .stage>.selection-level,[data-exploded="true"] .stage>.floating-tools,[data-exploded="true"] .stage>.scene-caption,[data-exploded="true"] .stage>.scene-bottom{display:none!important}
+[data-exploded="true"] .part-selector-row,[data-exploded="true"] #part-path,[data-exploded="true"] #part-isolate{display:none!important}
+[data-exploded="true"] .inspector-tabs [data-inspector="module"],[data-exploded="true"] .inspector-tabs [data-inspector="room"],[data-exploded="true"] .inspector-tabs [data-inspector="display"]{display:none}
+[data-exploded="true"] #part-focus{width:100%;font-size:12px}
+.disassembly-heading{padding:26px 20px 18px;border-bottom:1px solid #e0e5da}.disassembly-heading h2{font-size:25px;letter-spacing:-.7px;font-weight:500;margin:10px 0}.disassembly-heading p{font-size:12px;line-height:1.6;color:#65755c;margin:0}
+.disassembly-search{padding:15px;display:grid;gap:8px}.disassembly-search input,.disassembly-search select{min-width:0;width:100%;background:#f8faf3;border:1px solid #d3ddc9;border-radius:6px;padding:11px;font:inherit;font-size:12px}
+#easy-part-list{padding:0 12px 24px;display:grid;gap:6px}.easy-part{display:flex;gap:12px;align-items:center;text-align:left;padding:12px 10px;border:1px solid #e0e6d9;border-radius:7px;background:#fcfdf8}.easy-part[aria-pressed="true"]{border-color:#7c9b58;background:#edf4e2;box-shadow:inset 3px 0 #7c9b58}.easy-part strong{font-size:12px;font-weight:500;display:block;line-height:1.4}.easy-part small{font-size:10px;color:#7a896f;display:block;margin-top:5px}.easy-part-symbol{width:28px;flex-shrink:0;font-size:24px;color:#6f8858;text-align:center}
+#disassembly-toolbar{position:absolute;top:18px;left:20px;right:20px;z-index:4;padding:15px 17px 10px;background:#f8faf4f2;border:1px solid #d6e0cb;border-radius:10px;box-shadow:0 5px 20px #26391a0a}
+.disassembly-topline{display:flex;align-items:center;justify-content:space-between;gap:12px}.disassembly-topline strong{display:block;font-size:17px;font-weight:500;margin-top:5px}.disassembly-topline button{font-size:11px;color:#536c40;padding:8px 0;white-space:nowrap}
+.disassembly-controls{display:flex;align-items:center;gap:8px;margin-top:15px}.disassembly-controls>button{font-size:11px;padding:9px 10px;border-radius:5px;background:#e4edd9;color:#475d36}.disassembly-controls #disassembly-play{background:#4f6b35;color:white}.disassembly-controls>label{flex:1;min-width:80px;font-size:10px;color:#5c6d50}.disassembly-controls input{display:block;width:100%;accent-color:#6d8b4c;margin-top:7px}.disassembly-controls output{float:right;font-variant-numeric:tabular-nums}.disassembly-controls select{font:inherit;font-size:10px;max-width:110px;padding:8px 5px;background:#fff;border:1px solid #d1dbc7;border-radius:5px}
+#disassembly-hint{font-size:11px;color:#6a7b5b;margin:10px 0 0;min-height:16px}
+@media(hover:hover) and (pointer:fine){.easy-part:hover{border-color:#9aae85;background:#f0f5e8}.easy-primary:hover{background:#405c29}}
+@media(max-width:980px){#disassembly-toolbar{left:15px;right:15px}.disassembly-topline strong{font-size:16px}.disassembly-controls{gap:6px}}
+@media(max-width:680px){#disassembly-toolbar{top:9px;left:9px;right:9px;padding:12px}.disassembly-topline button{font-size:10px}.disassembly-controls{flex-wrap:wrap;gap:7px}.disassembly-controls>label{min-width:110px}.disassembly-controls select{max-width:100px}.disassembly-controls #disassembly-fit{display:none}#disassembly-hint{font-size:10px}.disassembly-topline .eyebrow{font-size:8px}.disassembly-topline strong{font-size:14px}.expert-toggle{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.easy-part,.easy-primary{transition:none}}
+.disassembly-options{display:flex;gap:16px;align-items:center;padding-top:8px;font-size:11px}.disassembly-options label{display:flex;gap:8px;align-items:center}.disassembly-options select{padding:6px;border:1px solid #d6ddcd;border-radius:6px;background:#fff}.disassembly-options input{accent-color:#6b834b}

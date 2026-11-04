@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {cleanDetails,roomDefaults,normalizeRoom,resizeFromPointer} from './dist/studio/details.mjs';
+test('part overrides preserve editable data but reject unknown keys and unsafe values',()=>{const d=cleanDetails({'door-0':{x:12,open:100,color:'#112233',mechanism:'lift',width:700,extra:'drop'},'__proto__':{x:5},bad:{color:'url(x)',width:-2}});assert.equal(d['door-0'].mechanism,'lift');assert.equal(d['door-0'].width,700);assert.equal(d['door-0'].extra,undefined);assert.equal(d.bad.color,undefined);assert.equal(d.bad.width,undefined);});
+test('room extension keeps floor texture scale and opening inside wall',()=>{const r=normalizeRoom({...roomDefaults,width:5000,depth:4000,height:2800,windowWidth:9000,windowHeight:9000,floorScale:2.5});assert.equal(r.floorScale,2.5);assert.ok(r.windowWidth<=r.width-200);assert.ok(r.windowHeight<=r.height-r.windowSill-100);});
+test('pointer resize respects local axis and cabinet limits',()=>{assert.equal(resizeFromPointer(800,100,1),1000);assert.equal(resizeFromPointer(800,-1000,1),250);assert.equal(resizeFromPointer(800,10000,1),2400);});
